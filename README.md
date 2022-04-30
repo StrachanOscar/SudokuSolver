@@ -1,6 +1,6 @@
 # A Sudoku Solver
 
-### A program written in Python that solves a Sudoku using a backtracking algorithm. 
+### A Python program that solves a Sudoku using a backtracking algorithm. 
 
 The program was written in Python because of its convenience but I'll convert it to C++ in the near future. Understanding the recursive nature of the 
 backtracking algorithm was a challenge but ultimately rewarding. The helper functions were simple to implement. 
