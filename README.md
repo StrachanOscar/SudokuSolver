@@ -9,3 +9,6 @@ backtracking algorithm was a challenge but ultimately rewarding. The helper func
 1. Develop a GUI for the program. Users should be able to create their own game or generate a random one with a specified difficulty. The game should be solved for the user when they hit a particular key.
 2. Implement a scoring feature and timer. Points added for correct moves and deducted for incorrect ones. Final score is multiplied in relation to their final time (shorter times equal a higher multiplier, etc).
 3. Further develop the GUI with added responsiveness and visual appeal. E.g. a skippable animation for the solving algorithm.
+
+**Other features:**
+- Multiplayer capabilities: a user with a link can join your game and help you solve the Sudoku.
