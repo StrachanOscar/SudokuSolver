@@ -6,7 +6,6 @@ The program was written in Python because of its convenience but I'll convert it
 backtracking algorithm was a challenge but ultimately rewarding. The helper functions were simple to implement. 
 
 **Future iterations:**
-1. Implement a difficulty feature whereby users can specify the level of difficulty they would like in their game. Difficulty would be directly proportional to the starting number of empty cells.
-2. Develop a GUI for the program. Users should be able to create their own game or generate a random one with a specified difficulty. The game should be solved for the user when they hit a particular key.
-3. Implement a scoring feature and timer. Points added for correct moves and deducted for incorrect ones. Final score is multiplied in relation to their final time (shorter times equal a higher multiplier, etc).
-4. Further develop the GUI with added responsiveness and visual appeal. E.g. a skippable animation for the solving algorithm.
+1. Develop a GUI for the program. Users should be able to create their own game or generate a random one with a specified difficulty. The game should be solved for the user when they hit a particular key.
+2. Implement a scoring feature and timer. Points added for correct moves and deducted for incorrect ones. Final score is multiplied in relation to their final time (shorter times equal a higher multiplier, etc).
+3. Further develop the GUI with added responsiveness and visual appeal. E.g. a skippable animation for the solving algorithm.
