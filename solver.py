@@ -3,17 +3,18 @@ A program that solves a Sudoku using a backtracking algorithm.
 Written by Oscar Strachan.
 Started 29/04/2022.
 '''
+from random import shuffle, randint
 
 board = [
-    [7,8,0,4,0,0,1,2,0],
-    [6,0,0,0,7,5,0,0,9],
-    [0,0,0,6,0,1,0,7,8],
-    [0,0,7,0,4,0,2,6,0],
-    [0,0,1,0,5,0,9,3,0],
-    [9,0,4,0,6,0,0,0,5],
-    [0,7,0,3,0,0,0,1,2],
-    [1,2,0,0,0,7,4,0,0],
-    [0,4,9,2,0,6,0,0,7]
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0]
 ]
 
 def solve_board(board):
@@ -22,7 +23,7 @@ def solve_board(board):
 
     Inputs:
         board - a list of lists containing digits correlating to integers or empty spaces on the board.
-    Outputs:
+    Output:
         boolean - true if solved, false if not.
     '''
 
@@ -120,4 +121,68 @@ def locate_empty(board):
                 return (i, j)
 
     return None
+
+
+def generate_solution(board):
+    '''
+    A backtracking algorithm that generates a complete solution to the Sudoku.
+
+    Input:
+        board - a list of lists containing digits correlating to integers or empty spaces on the board.
+    Output:
+        boolean - true if solved, false if not.
+    '''
+
+    number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    locate = locate_empty(board)
+    if not locate:
+        return True
+    else:
+        row, col = locate
+
+    shuffle(number_list)
+    for number in number_list:
+        if check_valid(board, number, (row, col)):
+            board[row][col] = number
+
+            if solve_board(board):
+                return True
+
+            board[row][col] = 0
+
+    return False
+
+
+def remove_numbers(board, difficulty):
+    '''
+    Removes a certain number of cells from the Sudoku depending on difficulty.
+
+    Inputs:
+        board - a list of lists containing digits correlating to integers or empty spaces on the board.
+        difficulty - the desired Sudoku difficulty    
+    '''
+    
+    non_empty_cells = 81
+    removed_cells = []
+    number = 0
+
+    if difficulty == 'Easy':
+        number = 17 * 3
+    elif difficulty == 'Medium':
+        number = 17 * 2
+    elif difficulty == 'Hard':
+        number = 17 * 1
+
+    while non_empty_cells > number:
+        row = randint(0, 8)
+        column = randint(0, 8)
+        if (row, column) not in removed_cells:
+            board[row][column] = 0
+            removed_cells.append((row, column))
+
+            non_empty_cells -= 1
+
+    return
+
 
